@@ -85,19 +85,67 @@ function viewRoles() {
 }
 
 function viewEmployees() {
-  console.log("TODO: You chose 'View Employees'");
+  db.query('SELECT * FROM employee', function (err, results) {
+    console.table(results)
+    menu();
+  });
 }
 
-function addDepartment() {
-  console.log("TODO: You chose 'Add Department'");
+async function addDepartment() {
+  const answer = await inquirer.prompt ([
+    {
+      type: "input",
+      message: "What is the Department Name?",
+      name: "department",
+    }
+  ]) 
+
+  db.query('INSERT INTO department set ?', [{dep_name: answer.department}], function (err, results) {
+    console.log("Select 'View All Departments' to see the updated table")
+    menu();
+  });
 }
 
-function addRole() {
-  console.log("TODO: You chose 'Add Role'");
+async function addRole() {
+  const answer = await inquirer.prompt ([
+    {
+      type: "input",
+      message: "What is the Employee Role?",
+      name: "role",
+    },
+    {
+      type: "input",
+      message: "What is the Employee Role Salary?",
+      name: "salary",
+    },
+    {
+      type: "input",
+      message: "What is the Department Id?",
+      name: "department",
+    },
+  ]) 
+
+  db.query('INSERT INTO employee_role set ?', [{title: answer.role, salary: answer.salary, department_id: answer.department}], function (err, results) {
+    console.log("Select 'View All Roles' to see the updated table")
+    menu();
+  });
+  // prompt user to input title
+  // prompt user to input salary
+  // prompt user to input department_id
+  // db.query --> insert into employee_role 
+  // show updated employee_role table
+  // menu();
 }
 
 function addEmployee() {
   console.log("TODO: You chose 'Add Employee'");
+  // prompt user to input first_name
+  // prompt user to input last_name
+  // prompt user to input role_id
+  // prompt user to input manager_id
+  // db.query --> insert into employee
+  // show updated employee table
+  // menu();
 }
 
 function updateRole() {
