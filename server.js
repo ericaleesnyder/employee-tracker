@@ -78,7 +78,10 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-  console.log("TODO: You chose 'View Roles'");
+  db.query('SELECT * FROM employee_role', function (err, results) {
+    console.table(results)
+    menu();
+  });
 }
 
 function viewEmployees() {

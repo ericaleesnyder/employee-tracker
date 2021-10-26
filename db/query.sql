@@ -3,6 +3,8 @@ USE employees_db;
 -- SELECT * FROM department;
 
 -- query for view roles
+-- SELECT * FROM employee_role;
+
 -- query for view employees
 -- query for add department
 -- query for add role
