@@ -9,13 +9,11 @@ USE employees_db;
 -- SELECT * FROM employee;
 
 -- query for add department
--- INSERT INTO department (dep_name)
--- VALUES
---     ("Marketing");
+-- INSERT INTO department (dep_name) VALUES ("Marketing");
 
 
-DELETE FROM department WHERE id=5;
-SELECT * FROM department;
+-- DELETE FROM department WHERE id=5;
+-- SELECT * FROM department;
     
 -- query for add role
 -- query for add employee 

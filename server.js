@@ -129,15 +129,9 @@ async function addRole() {
     console.log("Select 'View All Roles' to see the updated table")
     menu();
   });
-  // prompt user to input title
-  // prompt user to input salary
-  // prompt user to input department_id
-  // db.query --> insert into employee_role 
-  // show updated employee_role table
-  // menu();
 }
 
-function addEmployee() {
+async function addEmployee() {
   console.log("TODO: You chose 'Add Employee'");
   // prompt user to input first_name
   // prompt user to input last_name
@@ -146,6 +140,34 @@ function addEmployee() {
   // db.query --> insert into employee
   // show updated employee table
   // menu();
+  const answer = await inquirer.prompt ([
+    {
+      type: "input",
+      message: "What is the employee's first name?",
+      name: "first",
+    },
+    {
+      type: "input",
+      message: "What is the employee's last name?",
+      name: "last",
+    },
+    {
+      type: "input",
+      message: "What is the Role Id?",
+      name: "role",
+    },
+    {
+      type: "input",
+      message: "What is the Manager Id?",
+      name: "manager",
+    },
+  ]) 
+
+  db.query('INSERT INTO employee set ?', [{first_name: answer.first, last_name: answer.last, role_id: answer.role, manager_id: answer.manager}], function (err, results) {
+    console.log(results);
+    console.log("Select 'View All Employees' to see the updated table")
+    menu();
+  });
 }
 
 function updateRole() {
