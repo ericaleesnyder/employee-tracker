@@ -1,6 +1,7 @@
 const art = require("ascii-art");
 const inquirer = require("inquirer");
 const mysql = require("mysql2");
+require("console.table");
 
 // create the connection to database
 const db = mysql.createConnection({
@@ -36,7 +37,8 @@ async function menu() {
         "Add a Department", 
         "Add a Role", 
         "Add an Employee", 
-        "Update an Employee Role"
+        "Update an Employee Role",
+        "Exit"
       ],
     },
   ]);
@@ -69,7 +71,10 @@ async function menu() {
 }
 
 function viewDepartments() {
-  console.log("TODO: You chose 'View Departments'");
+  db.query('SELECT * FROM department', function (err, results) {
+    console.table(results)
+    menu();
+  });
 }
 
 function viewRoles() {
@@ -97,5 +102,6 @@ function updateRole() {
 }
 
 function exit() {
-  console.log("TODO: You chose 'Exit'");
+  console.log("Goodbye");
+  db.end();
 }
