@@ -12,8 +12,6 @@ The user can simply follow the prompts to view, add, and update employee roles a
 
 Through this task, I learned the importance of understanding how to correctly join two tables to display the required information. For example, showing department names as opposed to department IDs that have little to no significance to the layperson. 
 
-The deployed version of the application can be found at:
-https://ericaleesnyder.github.io/employee-tracker/
 
 ## Table of Contents 
 1. [Installation](#installation)
@@ -26,6 +24,9 @@ https://ericaleesnyder.github.io/employee-tracker/
 Before running node server.js, the user must run npm install and run the sql files through mysql.
 
 ## Usage 
+
+![employee-tracker](https://user-images.githubusercontent.com/89615676/138985136-67c5062b-9d61-419a-a1ad-9a45c37701f2.gif)
+
 Upon initializing the application, the user is prompted to select an action from a dropdown menu. The menu lists options for viewing departments, roles, and employees, as well as options for adding new employees, roles, and departments. 
 
 ![initial menu](/assets/images/initial-menu.png)
