@@ -169,7 +169,6 @@ async function addEmployee() {
   ]) 
 
   db.query('INSERT INTO employee set ?', [{first_name: answer.first, last_name: answer.last, role_id: answer.role, manager_id: answer.manager}], function (err, results) {
-    console.log(results);
     console.log("Select 'View All Employees' to see the updated table")
     menu();
   });
@@ -210,8 +209,7 @@ async function updateRole() {
         name: "role",
       },
     ]);
-    console.log(name);
-    console.log(role);
+  
     const updateEmployeeSql = `UPDATE employee SET ? WHERE ?;`;
     await db
       .promise()
@@ -219,7 +217,7 @@ async function updateRole() {
         { role_id: role },
         { id: name.id },
       ]);
-    console.log("Update success.");
+    console.log("Update success. Select 'View All Employees' to see the updated table.");
     return menu();
     
   } catch (error) {
